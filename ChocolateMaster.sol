@@ -42,7 +42,7 @@ contract ChocolateMaster {
     function proveThatEtherCanBeWithdrawn(Faucet faucet) public {
         require(retrieved[CAN_WITHDRAW_ETHER_FROM_CONTRACT][msg.sender] == false);
 
-        retrieveOneEther(faucet);
+        retrieveEther(faucet);
 
         retrieved[CAN_WITHDRAW_ETHER_FROM_CONTRACT][msg.sender] = true;
         token.transfer(msg.sender, 1);
@@ -51,20 +51,33 @@ contract ChocolateMaster {
     // Bonus: Make your faucet contract itself call this method in order to make it
     // withdraw some ether. Get a bonus chocolate token. Just the first one to call this
     // gets this token.
-    function faucetInitiatesWithdraw() public {
-        if (!bonusTokenRetrieved)
+    // The account has to be your account address. The chocolate token will be
+    // sent to this adddress,
+    function faucetInitiatesWithdraw(address accountToSendTheChocolatTokenTo) public {
+        require(isContract(accountToSendTheChocolatTokenTo) == false);
+
+        if (bonusTokenRetrieved)
             return;
 
-        retrieveOneEther(Faucet(msg.sender));
+        retrieveEther(Faucet(msg.sender));
 
         bonusTokenRetrieved = true;
-        token.transfer(msg.sender, 1);
+        token.transfer(accountToSendTheChocolatTokenTo, 1);
     }
 
-    function retrieveOneEther(Faucet faucet) private {
+    function retrieveEther(Faucet faucet) private {
         uint initialBalance = address(this).balance;
-        faucet.withdraw1Ether();
+        faucet.withdrawEther();
         uint newBalance = address(this).balance;
-        require(newBalance - initialBalance == 1 ether);
+        require(newBalance - initialBalance > 0);
     }
+
+    function isContract(address addr) private returns (bool) {
+        uint size;
+        assembly { size := extcodesize(addr) }
+        return size > 0;
+    }
+
+    // This function makes it possible for the contract to receive ether
+    function() public payable { }
 }

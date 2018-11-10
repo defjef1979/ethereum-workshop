@@ -1,7 +1,9 @@
 pragma solidity ^0.4.24;
 
+import './ChocolateMaster.sol';
+
 contract Faucet {
-    function withdraw1Ether() public {
+    function withdrawEther() public {
         // Insert your code here
     }
 
