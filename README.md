@@ -114,6 +114,12 @@ your deployed contract and its deployed address.
 
 ![](img/deployed.png)
 
+Important! If you every need to redeploy a smart contract (e.g., because of a
+mistake or you changed its source code) remove the old deployed contract from Remix by
+pressing the _X_ button.
+
+![](img/remove_deployed.png)
+
 ### Understanding the Faucet contract
 The way a faucet works is: people can transfer Ether to it, which it stores, and it
 also provides a function that other people can use to withdraw Ether. As simple as that.
@@ -231,15 +237,20 @@ button. You should have two chocolate tokens now.
 As we said earlier, the function `withdrawEther()` from your faucet is not implemented
 yet.
 Implement it such that it transfers some ether to the account calling the function.
-It does not matter how much much Ether you transfer, as long as the faucet has enough
-Ether.
+It does not matter how much much Ether you transfer. Make sure though that your facet
+has enough ether. If it does not, send it more using Metamask as you did in the
+previous task. Important: implement your method such that it withdraws much less than
+an Ether, so that your faucet does not run out of Ether.
+Note that in Solidity 1 means 1 Wei, which is 1e(-18) Ether, so just make
+your function withdraw 1 Wei.
 When you are done, call `proveThatEtherCanBeWithdrawn()` in the chocolate master,
 providing the address of your faucet contract. The master will try to withdraw Ether.
 If it works, one more chocolate token for you.
 
+Important! If you change the code of your contract, don't forget to remove the old
+deployed contract and recompile and redeploy your contract.
+
 Hints:
-* Every time you change the code of your faucet contract, you have to recompile
-and redeploy it. Only use the latest deployed contract.
 * `msg.sender` is the address of the callee of the function.
 * Solidity documentation: https://solidity.readthedocs.io/en/v0.4.25/units-and-global-variables.html#address-related
 
@@ -248,12 +259,12 @@ and redeploy it. Only use the latest deployed contract.
 So far you have always called the chocolate master contract manually, but contracts can
 call contracts, too. Add a function to your faucet that calls the function
 `faucetInitiatesWithdraw()` from the chocolate master. It will again try to withdraw
-Ether, so make sure your faucet has Ether. If you are the first one to accomplish this
-task, you'll get the one and only bonus chocolate token.
+Ether, so make sure your faucet has Ether.
 
 Hint:
 * when a contract calls another contract, `msg.sender` becomes the caller contract's
 address.
+* take a look at the chocolate master to see how it references the Faucet contract.
 
 ## Chocolate time
 Congratulations! You conquered the blockchain. You can come to us and retrieve your
