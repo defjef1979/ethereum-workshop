@@ -10,7 +10,7 @@ Specifically you will learn to:
 ## Your incentive
 As with any blockchain project, there has to be an economic aspect to it, not just
 a technical one. This workshop is no exception. We would like to reward you with
-chocolate for completing your tasks. It order for you to trust that you will receive the
+chocolate for completing your tasks. In order for you to trust that you will receive the
 chocolate, we assigned a trusted chocolate master. The master is not a human, but a
 smart contract. We divided all the chocolate we have in chocolate tokens and put it in
 the custody of the chocolate master. Every time you accomplish a task the chocolate
@@ -36,7 +36,8 @@ Now you should see it in your addon bar.
 
 ![](img/metamask.png)
 
-Click on it and set a password in order to create your Ethereum account. Click
+Click on it and set a password in order to create your Ethereum account. If it asks you
+to try the new version of Metamask, do accept the new version. Click
 _Create_, then _Next_, then scroll down the Terms of Use and click _Accept_, then again
 _Accept_ for Privacy, and Phishing warning. A backup phrase will be generated. It can
 be used for later restoring your password. Store it somewhere safe as you'll need to
