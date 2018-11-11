@@ -92,8 +92,10 @@ Ethereum and later we shall explain how it works.
 
 We will use Remix, an online IDE,
 to compile and deploy the contract. Go to https://remix.ethereum.org/. Close the tab
-called _ballot.sol_. Press on the plus image in the left top corner to add a new file.
-Call it _Faucet.sol_. In the newly created tab copy paste the code from this file:
+called _ballot\_test.sol_. Press on the plus image in the left top corner to add a new 
+file.
+Call it _Faucet.sol_. Don't misspell the name! In the newly created tab copy paste the 
+code from this file:
 [Faucet.sol](Faucet.sol).  Click on _Start to compile_. If compilation succeeds you
 should
 see no errors and your faucet ready to deploy:
@@ -114,7 +116,7 @@ your deployed contract and its deployed address.
 
 ![](img/deployed.png)
 
-Important! If you every need to redeploy a smart contract (e.g., because of a
+Important! If you ever need to redeploy a smart contract (e.g., because of a
 mistake or you changed its source code) remove the old deployed contract from Remix by
 pressing the _X_ button.
 
@@ -133,9 +135,10 @@ Our contract has three functions. Let's start with the last one:
     function() public payable { }
 ```
 
-In Ethereum not only people can own Ether, but also smart contracts. In order for a
+In Ethereum smart contracts can also own Ether, so not only people can own Ether. In 
+order for a
 smart contract to be able to receive Ether it needs to have a function that is marked
-_payable_. So this is all this function does.
+_payable_. So this is all this function does. This function has no name.
 
 The second function is:
 
@@ -160,7 +163,8 @@ This is the function we will use to withdraw Ether from the faucet. You will hav
 implement it later.
 
 ### Interacting with the Faucet contract
-Let us first check contract's Ether balance. For that let's call the `faucetBalance()`
+Let us first check the Ether balance of the contract. For that let's call the 
+`faucetBalance()`
 function. In remix go to your deployed contract and expand it by pressing the arrow
 button. You will see all its functions there. Click on `faucetBalance`. The balance
 should be zero.
@@ -174,11 +178,13 @@ with other people's contracts.
 
 ### The chocolate token
 As we said earlier we tokenized some physical chocolate and we deployed two smart
-contracts on Ethereum so that you can get your chocolate from them.
+contracts on Ethereum so that you can get your chocolate from them. So in this case you
+want to work with those specific contracts instead of deploying them yourself, because 
+the ones you would deploy yourself would not have any chocolate.
 
 The first smart contract is called _ChocolateToken.sol_. It oversees who owns how many
 chocolate tokens. Let's load it in Remix. In Remix add one more file and call it
-_ChocolateToken.sol_. Into it copy paste the code from this file:
+_ChocolateToken.sol_. Don't misspell the name! Into it copy paste the code from this file:
 [ChocolateToken.sol](ChocolateToken.sol). Click _Start to compile_ in the _Compile_ tab.
 
 Now instead of deploying the contract, you will have to load the contract we deployed
@@ -198,7 +204,8 @@ To do that, copy the contract's address by clicking on the copy icon.
 
 Then go to Metamask, click on the _Menu_ button, then _Add Token_, then
 _Custom Token_. In _Token Address_ fill in the address of the chocolate token contract from above.
-In _Token Symbol_ fill in _Chocolate_. Click _Add Token_. You should now see that your
+In _Token Symbol_ fill in _Chocolate_. Click _Next_ and then _Add Token_. You should now 
+see that your
 balance is zero. It will increase as the chocolate master starts handing you tokens in.
 
 ### The chocolate master
@@ -217,8 +224,8 @@ Awesome, the chocolate is up for grabs now! Go get it!
 ### 1. Basic income
 Our chocolate master has been hanging out with his liberal friends and learnt about the
 idea of basic income, so he thought to try it out. The idea of basic income is that the
-government pays every person in the state a basic fixed income, independent of their
-employment status, and the people can work to earn extra money.
+government pays every citizen a fixed basic income, independent of their
+employment status, and the citizen can work to earn extra money.
 
 So to get your basic income chocolate token, call the function `getBasicChocolateIncome()`
 in the chocolate master contract. You should then see in Metamask that you just
@@ -237,7 +244,7 @@ button. You should have two chocolate tokens now.
 As we said earlier, the function `withdrawEther()` from your faucet is not implemented
 yet.
 Implement it such that it transfers some ether to the account calling the function.
-It does not matter how much much Ether you transfer. Make sure though that your facet
+It does not matter how much Ether you transfer. Make sure though that your facet
 has enough ether. If it does not, send it more using Metamask as you did in the
 previous task. Important: implement your method such that it withdraws much less than
 an Ether, so that your faucet does not run out of Ether.
@@ -249,6 +256,7 @@ If it works, one more chocolate token for you.
 
 Important! If you change the code of your contract, don't forget to remove the old
 deployed contract and recompile and redeploy your contract.
+Important! Don't forget to send Ether to your newly deployed faucet contract.
 
 Hints:
 * `msg.sender` is the address of the callee of the function.
@@ -261,9 +269,11 @@ call contracts, too. Add a function to your faucet that calls the function
 `faucetInitiatesWithdraw()` from the chocolate master. It will again try to withdraw
 Ether, so make sure your faucet has Ether.
 
+Important! Don't forget to send Ether to your newly deployed faucet contract.
+
 Hint:
-* when a contract calls another contract, `msg.sender` becomes the caller contract's
-address.
+* when a contract calls another contract, in the code of the called contract 
+`msg.sender` represents the address of the caller contract.
 * take a look at the chocolate master to see how it references the Faucet contract.
 
 ## Chocolate time
