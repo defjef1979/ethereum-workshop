@@ -182,7 +182,7 @@ _ChocolateToken.sol_. Into it copy paste the code from this file:
 [ChocolateToken.sol](ChocolateToken.sol). Click _Start to compile_ in the _Compile_ tab.
 
 Now instead of deploying the contract, you will have to load the contract we deployed
-at this address: _0x2FB61c0AE478DfC7AA2F9F3c7C6b629724095d1b_ . For this, go to the _Run_
+at this address: _0x755014Da263Fc47d238078Bb47d217F743E5B6a5_ . For this, go to the _Run_
 tab, select _ChocolateToken_, in _At Address_ field fill in the above address, and
 click on _At Address_. It should now show up in the _Deployed Contracts_.
 
@@ -205,7 +205,7 @@ balance is zero. It will increase as the chocolate master starts handing you tok
 
 The second contract we deployed is called _ChocolateMaster_. First add its code in Remix
 from this source: [ChocolateMaster.sol](ChocolateMaster.sol), compile it, and load it
-from this address: _0x45c57e473515e03220b0b5ec6c291bc1015cb7d4_ . You should see it
+from this address: _0x692a70d2e424a56d2c6c27aa97d1a86395877b3a_ . You should see it
 loaded.
 
 ![](img/loaded_chocolate_master.png)
