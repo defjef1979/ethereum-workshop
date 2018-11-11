@@ -6,14 +6,14 @@ import './Faucet.sol';
 contract ChocolateMaster {
     event ChocolateTokenCreated(ChocolateToken token);
 
-    uint private TOTAL_CHOCOLATE_TOKENS = 40;
+    uint private TOTAL_CHOCOLATE_TOKENS = 400;
     string private BASIC_INCOME = 'BASIC_INCOME';
     string private CONTRACT_HAS_ETHER = 'CONTRACT_HAS_ETHER';
     string private CAN_WITHDRAW_ETHER_FROM_CONTRACT = 'CAN_WITHDRAW_ETHER_FROM_CONTRACT';
     string private FAUCET_CAN_INITIATE_WITHDRAW = 'FAUCET_CAN_INITIATE_WITHDRAW';
+    string private BONUS = 'BONUS';
 
     mapping (string => mapping (address => bool)) private retrieved;
-    bool private bonusTokenRetrieved = false;
     ChocolateToken public token;
 
     constructor() public {
@@ -55,13 +55,11 @@ contract ChocolateMaster {
     // sent to this adddress,
     function faucetInitiatesWithdraw(address accountToSendTheChocolatTokenTo) public {
         require(isContract(accountToSendTheChocolatTokenTo) == false);
-
-        if (bonusTokenRetrieved)
-            return;
+        require(retrieved[BONUS][accountToSendTheChocolatTokenTo] == false);
 
         retrieveEther(Faucet(msg.sender));
 
-        bonusTokenRetrieved = true;
+        retrieved[BONUS][accountToSendTheChocolatTokenTo] = true;
         token.transfer(accountToSendTheChocolatTokenTo, 1);
     }
 
