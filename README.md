@@ -94,7 +94,8 @@ We will use Remix, an online IDE,
 to compile and deploy the contract. Go to https://remix.ethereum.org/. Close the tab
 called _ballot\_test.sol_. Press on the plus image in the left top corner to add a new 
 file.
-Call it _Faucet.sol_. Don't misspell the name! In the newly created tab copy paste the 
+Call it _Faucet.sol_. :warning: Don't misspell the name! In the newly created tab copy 
+paste the 
 code from this file:
 [Faucet.sol](Faucet.sol).  Click on _Start to compile_. If compilation succeeds you
 should
@@ -116,7 +117,7 @@ your deployed contract and its deployed address.
 
 ![](img/deployed.png)
 
-Important! If you ever need to redeploy a smart contract (e.g., because of a
+:warning: If you ever need to redeploy a smart contract (e.g., because of a
 mistake or you changed its source code) remove the old deployed contract from Remix by
 pressing the _X_ button.
 
@@ -184,7 +185,8 @@ the ones you would deploy yourself would not have any chocolate.
 
 The first smart contract is called _ChocolateToken.sol_. It oversees who owns how many
 chocolate tokens. Let's load it in Remix. In Remix add one more file and call it
-_ChocolateToken.sol_. Don't misspell the name! Into it copy paste the code from this file:
+_ChocolateToken.sol_. :warning: Don't misspell the name! Into it copy paste the code 
+from this file:
 [ChocolateToken.sol](ChocolateToken.sol). Click _Start to compile_ in the _Compile_ tab.
 
 Now instead of deploying the contract, you will have to load the contract we deployed
@@ -246,7 +248,7 @@ yet.
 Implement it such that it transfers some ether to the account calling the function.
 It does not matter how much Ether you transfer. Make sure though that your facet
 has enough ether. If it does not, send it more using Metamask as you did in the
-previous task. Important: implement your method such that it withdraws much less than
+previous task. :warning: Implement your method such that it withdraws much less than
 an Ether, so that your faucet does not run out of Ether.
 Note that in Solidity 1 means 1 Wei, which is 1e(-18) Ether, so just make
 your function withdraw 1 Wei.
@@ -254,9 +256,10 @@ When you are done, call `proveThatEtherCanBeWithdrawn()` in the chocolate master
 providing the address of your faucet contract. The master will try to withdraw Ether.
 If it works, one more chocolate token for you.
 
-Important! If you change the code of your contract, don't forget to remove the old
+:warning: If you change the code of your contract, don't forget to remove the old
 deployed contract and recompile and redeploy your contract.
-Important! Don't forget to send Ether to your newly deployed faucet contract.
+
+:warning: Don't forget to send Ether to your newly deployed faucet contract.
 
 Hints:
 * `msg.sender` is the address of the callee of the function.
@@ -269,7 +272,7 @@ call contracts, too. Add a function to your faucet that calls the function
 `faucetInitiatesWithdraw()` from the chocolate master. It will again try to withdraw
 Ether, so make sure your faucet has Ether.
 
-Important! Don't forget to send Ether to your newly deployed faucet contract.
+:warning: Don't forget to send Ether to your newly deployed faucet contract.
 
 Hint:
 * when a contract calls another contract, in the code of the called contract 
