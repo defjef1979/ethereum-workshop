@@ -36,8 +36,9 @@ Now you should see it in your addon bar.
 
 ![](img/metamask.png)
 
-Click on it and set a password in order to create your Ethereum account. If it asks you
-to try the new version of Metamask, do accept the new version. Click
+If you click on it, it will ask you if you want to try the new version of Metamask. 
+Accept the new version.
+Now in Metamask set a password in order to create your Ethereum account. Click
 _Create_, then _Next_, then scroll down the Terms of Use and click _Accept_, then again
 _Accept_ for Privacy, and Phishing warning. A backup phrase will be generated. It can
 be used for later restoring your password. Store it somewhere safe as you'll need to
@@ -56,14 +57,12 @@ Your Metamask should look like this:
 
 ### Getting Ether
 Now we need some Ether. We will use an existing smart contract in this Ethereum
-network, called a _Test Faucet_, that owns lots of Ether and can give use 1 Ether at a
-time if we ask it. So in Metamask click _Deposit_, then at the botton near _Test Faucet_
-click _Get Ether_, and then click _Request 1 ether from faucet_. Shortly, you should see a
-transaction at the bottom of the page. It will take ~1 min to confirm. Once that
-happens, you should see that you have 1 Ether in Metamask.
-
-If that does not work, go to this page and click _Send me test ether_:
-https://faucet.ropsten.be/
+network, called a _Test Faucet_, that owns of Ether and can give use 1 Ether at a
+time if we ask it. Go to this address: https://sutiialex.github.io/faucet/ . Metamask 
+will ask you to give the faucet permission to see you Ethereum account. Confirm it.
+On the faucet web page will see now your account address and the faucet's balance. Click 
+_Withdraw 1 Ether from Faucet_. You should see a transaction on the page. In around 1 
+minute you will see in Metamask that you have one Ether.
 
 Good! We have Ether. Lets make a gift to someone.
 
